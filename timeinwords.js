@@ -63,21 +63,21 @@ function timeInWords (time) {
       minutesInWords = timeConvert[60 - parseInt(m)];
     }
     if (parseInt(m) === 0) {
-      time = `${hourInWords} o' clock`;
+      timeString = `${hourInWords} o' clock`;
     } else if (parseInt(m) === 15) {
-      time = `quarter past ${hourInWords}`;
+      timeString = `quarter past ${hourInWords}`;
     } else if (parseInt(m) === 30) {
-      time = `half past ${hourInWords}`;
+      timeString = `half past ${hourInWords}`;
     } else if (parseInt(m) === 45) {
-      time = `quarter to ${hourInWords}`;
+      timeString = `quarter to ${hourInWords}`;
     } else if (parseInt(m) === 1) {
-      time = `one minute past ${hourInWords}`;
+      timeString = `one minute past ${hourInWords}`;
     } else if (parseInt(m) < 30) {
-      time = `${minutesInWords} minutes past ${hourInWords}`;
+      timeString = `${minutesInWords} minutes past ${hourInWords}`;
     } else if (parseInt(m) === 59) {
-      time = `one minute to ${hourInWords}`;
+      timeString = `one minute to ${hourInWords}`;
     } else if (parseInt(m) > 30) {
-      time = `${minutesInWords} minutes to ${hourInWords}`;
+      timeString = `${minutesInWords} minutes to ${hourInWords}`;
     }
-    console.log(time)
+    console.log(timeString);
 }
