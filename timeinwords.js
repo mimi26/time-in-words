@@ -11,7 +11,15 @@
 
 // Write a program which prints the time in words for the input given in the format mentioned above.
 
-function timeInWords (h,m) {
+function timeInWords (time) {
+  let h = time.match(/^.*(?=(\:))/g).join();//match everything before the ":" to get the hours
+  let timeArr = time.split('');
+  let colonIndex = timeArr.indexOf(':');//find the index of the ":"
+  let minuteArr = [];
+  for (i = colonIndex + 1; i < timeArr.length; i ++) { //loop through everything after the colon
+    minuteArr.push(timeArr[i]);//push into a minute array
+    }
+    let m = minuteArr.join('');//join the minute array to get the minutes
     let timeConvert = {
       1 : 'one',
       2 : 'two',
@@ -43,10 +51,10 @@ function timeInWords (h,m) {
       29: 'twenty nine'
     }
     if (parseInt(m) <=30) {
-      hourInWords = timeConvert[h];
-    } else if (parseInt(m) > 30 && h !== 12){
-      hourInWords = timeConvert[h + 1];
-    } else if (parseInt(m) > 30 && h === 12) {
+      hourInWords = timeConvert[parseInt(h)];
+    } else if (parseInt(m) > 30 && parseInt(h) !== 12){
+      hourInWords = timeConvert[parseInt(h) + 1];
+    } else if (parseInt(m) > 30 && parseInt(h) === 12) {
       hourInWords = timeConvert[1];
     }
     if (parseInt(m) < 30) {
