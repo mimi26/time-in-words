@@ -12,14 +12,10 @@
 // Write a program which prints the time in words for the input given in the format mentioned above.
 
 function timeInWords (time) {
-  const h = parseInt(time.match(/^.*(?=(\:))/g).join());//match everything before the ":" to get the hours
-  const timeArr = time.split('');
-  const colonIndex = timeArr.indexOf(':');//find the index of the ":"
-  const minuteArr = [];
-  for (let i = colonIndex + 1; i < timeArr.length; i ++) { //loop through everything after the colon
-    minuteArr.push(timeArr[i]);//push into a minute array
-  }
-  const m = parseInt(minuteArr.join(''));//join the minute array to get the minutes
+  const timeArr = time.split(':');
+  const timeIntArr = timeArr.map((timeStr) => parseInt(timeStr));
+  const h = timeIntArr[0];
+  const m = timeIntArr[1];
   const timeConvert = {
     1 : 'one',
     2 : 'two',
