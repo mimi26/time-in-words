@@ -13,9 +13,7 @@
 
 function timeInWords (time) {
   const timeArr = time.split(':');
-  const timeIntArr = timeArr.map((timeStr) => parseInt(timeStr));
-  const h = timeIntArr[0];
-  const m = timeIntArr[1];
+  const [h, m] = timeArr.map((timeStr) => parseInt(timeStr));
   const timeConvert = {
     1 : 'one',
     2 : 'two',
