@@ -14,6 +14,7 @@
 function timeInWords (time) {
   const timeArr = time.split(':');
   const [h, m] = timeArr.map((timeStr) => parseInt(timeStr));
+  //create hash for conversions
   const timeConvert = {
     1 : 'one',
     2 : 'two',
@@ -44,6 +45,7 @@ function timeInWords (time) {
     28: 'twenty eight',
     29: 'twenty nine'
   }
+  //conditions for midnight and noon
   if (m <=30) {
     hourInWords = timeConvert[h];
   } else if (m > 30 && h !== 12){
@@ -51,6 +53,7 @@ function timeInWords (time) {
   } else if (m > 30 && h === 12) {
     hourInWords = timeConvert[1];
   }
+  //first half of hour has different output than second
   if (m < 30) {
     minutesInWords = timeConvert[m];
   } else if (m > 30) {
